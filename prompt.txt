@@ -1,0 +1,142 @@
+You are an AI developer assistant.  
+Your task is to **extend and improve an existing Laravel + Blade + Filament + Livewire + Alpine.js Admin Panel**, not create it from scratch.  
+
+The Admin Panel will be sold on template marketplaces (ThemeForest, Creative Tim, TemplateMonster, etc.), so it must be **professional, modern, unique, and marketplace-ready**.  
+
+When implementing, always follow these rules:  
+
+1. **Check if a feature already exists**.  
+   - If it exists → improve it (cleaner code, better design, better UX).  
+   - If it does not exist → add it.  
+2. Do not break existing layouts, logic, or styles.  
+3. Keep the code modular, responsive, well-documented, and easy to customize.  
+4. Use modern stack: **Laravel 11 + Blade + Filament 3 + Livewire + Alpine.js + TailwindCSS**.  
+
+---
+
+## 🎨 Design & Layout
+- **3 Dashboard versions** (Analytics, Ecommerce, Crypto).  
+- **Vertical & horizontal menus** with sidebar variations.  
+- **Menu types**: click, hover, icon click, icon hover.  
+- **Two-panel menu option** (main + subpanel).  
+- **Light & dark versions** with switcher.  
+- **10+ color schemes**.  
+- **RTL & LTR support**.  
+- **Amazing UI design** with animations.  
+- **100+ UI elements** included.  
+- **UI Cards, tooltips, dropdowns, modals, badges**.  
+- **Carousel & timeline activity widget**.  
+- **Retina-ready, responsive, W3C validated**.  
+- **SCSS setup included**.  
+- **400+ icons + Icons Mind pack ($79)**.  
+
+---
+
+## 📊 Dashboard Features
+- **3 types of charts** (ApexCharts, Chart.js, Recharts).  
+- **C3 charts, AmCharts, Chart.js, Amps maps** integration.  
+- **GridJS + JsGrid + DataTables**.  
+- **Widgets** for stats, earnings, activities.  
+- **Fullcalendar plugin** with events.  
+- **Timeline component** for activity logs.  
+- **Pricing tables**.  
+- **Image gallery** with cropper app.  
+
+---
+
+## 📨 Communication
+- **Mailbox app** (inbox, sent, draft, compose).  
+- **Message chat system** (real-time with Livewire).  
+- **Notification plugins** (SweetAlert2 + Toastr).  
+
+---
+
+## 📂 File Management
+- **FilePond** for uploads.  
+- **Dropzone.js** drag-and-drop.  
+- **Cropper app** for images.  
+- File manager UI.  
+
+---
+
+## 🛒 E-Commerce Pages
+- Shopping cart.  
+- Checkout.  
+- Order details.  
+- Wishlist.  
+- Invoice page.  
+- Profile page.  
+
+---
+
+## 🔐 Authentication & Security
+- Login, Register, Forgot password, Reset password.  
+- Lock screen page.  
+- Error pages (404, 500, under construction, blank page).  
+- Role & permission management (Spatie + Filament).  
+
+---
+
+## 🎧 Media & Interactions
+- **Sound & video player**.  
+- **Right-click context menu**.  
+- **Keyboard shortcuts** for navigation.  
+- **Loading buttons (Ladda)**.  
+
+---
+
+## 📍 Maps
+- **Google Maps, Amps Maps, Leaflet, Vector Maps**.  
+
+---
+
+## 💹 Crypto Exchange Pages
+- Live exchange with charts.  
+- Deposit & Withdraw.  
+- Buy & Sell.  
+- Coin listing with market capitalization.  
+- Trade history.  
+- Wallet management.  
+- Beautiful typography and color themes.  
+- Light & dark versions.  
+
+---
+
+## 🛠 Developer & Customization
+- Plugins included:  
+  - **C3 Chart, AmCharts, Chart.js**  
+  - **Ace Editor, CKEditor, TinyMCE, Summernote**  
+  - **Cropper, Dropzone, Fullcalendar**  
+  - **Hopscotch, jQuery UI, JsGrid**  
+  - **Ladda Button, Moment.js**  
+  - **SweetAlert2, Toastr**  
+
+- Easy customization with SCSS and modular structure.  
+- Free Google fonts, free font icons.  
+- All modern browsers supported.  
+- Clear documentation included.  
+
+---
+
+## 🧑‍💻 Tech Rules
+1. Use **Laravel + Blade** for templating.  
+2. Use **Filament** for admin resources.  
+3. Use **Livewire + Alpine.js** for real-time interactivity.  
+4. Organize code into **layouts, partials, components, Livewire, controllers**.  
+5. Comment every major function and UI block.  
+6. Ensure **responsive design** for mobile, tablet, desktop.  
+7. Keep design **clean, professional, and marketplace-ready**.  
+8. Include **dark/light switcher globally**.  
+9. Add **code editor pages** (Ace, CKEditor, TinyMCE, Summernote).  
+
+---
+
+👉 Your output should:  
+1. **Check existing code first**.  
+2. Add any **missing features** from the above list.  
+3. Provide **clean and extendable code examples** (Blade layouts, Livewire components, Alpine.js snippets).  
+4. Ensure crypto pages, authentication pages, and dashboard versions are available.  
+5. Update SCSS/color themes for easy customization.  
+6. Ensure plugins are integrated and ready for developers to use.  
+
+⚡ Deliver everything in a **developer-friendly, marketplace-ready structure**.  

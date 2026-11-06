@@ -1,0 +1,810 @@
+// Admin Panel SCSS - Main stylesheet for customization
+// This file provides easy customization options for the admin panel
+
+// =============================================================================
+// VARIABLES
+// =============================================================================
+
+// Color Scheme Variables
+$primary-color: #3b82f6;
+$secondary-color: #6b7280;
+$success-color: #10b981;
+$danger-color: #ef4444;
+$warning-color: #f59e0b;
+$info-color: #06b6d4;
+$light-color: #f3f4f6;
+$dark-color: #1f2937;
+
+// Theme Colors
+$theme-colors: (
+  "primary": $primary-color,
+  "secondary": $secondary-color,
+  "success": $success-color,
+  "danger": $danger-color,
+  "warning": $warning-color,
+  "info": $info-color,
+  "light": $light-color,
+  "dark": $dark-color
+);
+
+// Typography
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-size-base: 0.875rem;
+$font-weight-base: 400;
+$line-height-base: 1.5;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3
+);
+
+// Border Radius
+$border-radius: 0.375rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-radius-xl: 0.75rem;
+
+// Shadows
+$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// Transitions
+$transition-base: all 0.15s ease-in-out;
+$transition-fade: opacity 0.15s linear;
+$transition-collapse: height 0.35s ease;
+
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Button Mixin
+@mixin button-variant($background, $border, $color: #fff) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  
+  &:hover {
+    color: $color;
+    background-color: darken($background, 7.5%);
+    border-color: darken($border, 10%);
+  }
+  
+  &:focus {
+    color: $color;
+    background-color: darken($background, 7.5%);
+    border-color: darken($border, 10%);
+    box-shadow: 0 0 0 0.2rem rgba($background, 0.5);
+  }
+  
+  &:active {
+    color: $color;
+    background-color: darken($background, 10%);
+    border-color: darken($border, 12.5%);
+  }
+}
+
+// Card Mixin
+@mixin card-variant($background, $border) {
+  background-color: $background;
+  border-color: $border;
+  
+  .card-header {
+    background-color: darken($background, 5%);
+    border-bottom-color: $border;
+  }
+  
+  .card-footer {
+    background-color: darken($background, 5%);
+    border-top-color: $border;
+  }
+}
+
+// Animation Mixin
+@mixin animation($name, $duration: 1s, $timing: ease, $delay: 0s, $iteration: 1, $direction: normal, $fill: both) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration;
+  animation-direction: $direction;
+  animation-fill-mode: $fill;
+}
+
+// =============================================================================
+// BASE STYLES
+// =============================================================================
+
+// Reset and Base
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: #f8fafc;
+}
+
+// =============================================================================
+// COMPONENTS
+// =============================================================================
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  font-size: $font-size-base;
+  font-weight: 500;
+  line-height: $line-height-base;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  text-decoration: none;
+  transition: $transition-base;
+  
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+  
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+// Button Variants
+.btn-primary {
+  @include button-variant($primary-color, $primary-color);
+}
+
+.btn-secondary {
+  @include button-variant($secondary-color, $secondary-color);
+}
+
+.btn-success {
+  @include button-variant($success-color, $success-color);
+}
+
+.btn-danger {
+  @include button-variant($danger-color, $danger-color);
+}
+
+.btn-warning {
+  @include button-variant($warning-color, $warning-color);
+}
+
+.btn-info {
+  @include button-variant($info-color, $info-color);
+}
+
+.btn-light {
+  @include button-variant($light-color, $light-color, $dark-color);
+}
+
+.btn-dark {
+  @include button-variant($dark-color, $dark-color);
+}
+
+// Button Sizes
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: $border-radius-sm;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: $border-radius-lg;
+}
+
+// Cards
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  .card-header {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-top-left-radius: calc(#{$border-radius} - 1px);
+    border-top-right-radius: calc(#{$border-radius} - 1px);
+  }
+  
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem;
+  }
+  
+  .card-footer {
+    padding: 0.75rem 1rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom-left-radius: calc(#{$border-radius} - 1px);
+    border-bottom-right-radius: calc(#{$border-radius} - 1px);
+  }
+}
+
+// Card Variants
+.card-primary {
+  @include card-variant(lighten($primary-color, 45%), $primary-color);
+}
+
+.card-success {
+  @include card-variant(lighten($success-color, 45%), $success-color);
+}
+
+.card-danger {
+  @include card-variant(lighten($danger-color, 45%), $danger-color);
+}
+
+.card-warning {
+  @include card-variant(lighten($warning-color, 45%), $warning-color);
+}
+
+.card-info {
+  @include card-variant(lighten($info-color, 45%), $info-color);
+}
+
+// Forms
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d1d5db;
+  border-radius: $border-radius;
+  transition: $transition-base;
+  
+  &:focus {
+    color: $dark-color;
+    background-color: #fff;
+    border-color: lighten($primary-color, 25%);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+  
+  &::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+  }
+  
+  &:disabled {
+    background-color: #f3f4f6;
+    opacity: 1;
+  }
+}
+
+// Form Groups
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: $dark-color;
+}
+
+// Alerts
+.alert {
+  position: relative;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  
+  .alert-heading {
+    color: inherit;
+  }
+  
+  .alert-link {
+    font-weight: 700;
+  }
+}
+
+.alert-primary {
+  color: darken($primary-color, 20%);
+  background-color: lighten($primary-color, 45%);
+  border-color: lighten($primary-color, 25%);
+}
+
+.alert-secondary {
+  color: darken($secondary-color, 20%);
+  background-color: lighten($secondary-color, 45%);
+  border-color: lighten($secondary-color, 25%);
+}
+
+.alert-success {
+  color: darken($success-color, 20%);
+  background-color: lighten($success-color, 45%);
+  border-color: lighten($success-color, 25%);
+}
+
+.alert-danger {
+  color: darken($danger-color, 20%);
+  background-color: lighten($danger-color, 45%);
+  border-color: lighten($danger-color, 25%);
+}
+
+.alert-warning {
+  color: darken($warning-color, 20%);
+  background-color: lighten($warning-color, 45%);
+  border-color: lighten($warning-color, 25%);
+}
+
+.alert-info {
+  color: darken($info-color, 20%);
+  background-color: lighten($info-color, 45%);
+  border-color: lighten($info-color, 25%);
+}
+
+// =============================================================================
+// UTILITIES
+// =============================================================================
+
+// Spacing Utilities
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $length in $spacers {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length !important;
+    }
+    .#{$abbrev}t-#{$size} {
+      #{$prop}-top: $length !important;
+    }
+    .#{$abbrev}r-#{$size} {
+      #{$prop}-right: $length !important;
+    }
+    .#{$abbrev}b-#{$size} {
+      #{$prop}-bottom: $length !important;
+    }
+    .#{$abbrev}l-#{$size} {
+      #{$prop}-left: $length !important;
+    }
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-left: $length !important;
+      #{$prop}-right: $length !important;
+    }
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length !important;
+      #{$prop}-bottom: $length !important;
+    }
+  }
+}
+
+// Text Utilities
+.text-primary { color: $primary-color !important; }
+.text-secondary { color: $secondary-color !important; }
+.text-success { color: $success-color !important; }
+.text-danger { color: $danger-color !important; }
+.text-warning { color: $warning-color !important; }
+.text-info { color: $info-color !important; }
+.text-light { color: $light-color !important; }
+.text-dark { color: $dark-color !important; }
+
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-center { text-align: center !important; }
+
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Background Utilities
+.bg-primary { background-color: $primary-color !important; }
+.bg-secondary { background-color: $secondary-color !important; }
+.bg-success { background-color: $success-color !important; }
+.bg-danger { background-color: $danger-color !important; }
+.bg-warning { background-color: $warning-color !important; }
+.bg-info { background-color: $info-color !important; }
+.bg-light { background-color: $light-color !important; }
+.bg-dark { background-color: $dark-color !important; }
+
+// Border Utilities
+.border { border: 1px solid #dee2e6 !important; }
+.border-top { border-top: 1px solid #dee2e6 !important; }
+.border-right { border-right: 1px solid #dee2e6 !important; }
+.border-bottom { border-bottom: 1px solid #dee2e6 !important; }
+.border-left { border-left: 1px solid #dee2e6 !important; }
+
+.border-0 { border: 0 !important; }
+.border-top-0 { border-top: 0 !important; }
+.border-right-0 { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left-0 { border-left: 0 !important; }
+
+// Display Utilities
+.d-none { display: none !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-block { display: block !important; }
+.d-table { display: table !important; }
+.d-table-row { display: table-row !important; }
+.d-table-cell { display: table-cell !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+
+// Flexbox Utilities
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+.flex-row-reverse { flex-direction: row-reverse !important; }
+.flex-column-reverse { flex-direction: column-reverse !important; }
+
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse !important; }
+
+.justify-content-start { justify-content: flex-start !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-around { justify-content: space-around !important; }
+
+.align-items-start { align-items: flex-start !important; }
+.align-items-end { align-items: flex-end !important; }
+.align-items-center { align-items: center !important; }
+.align-items-baseline { align-items: baseline !important; }
+.align-items-stretch { align-items: stretch !important; }
+
+// =============================================================================
+// ANIMATIONS
+// =============================================================================
+
+// Fade In Animation
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  @include animation(fadeIn, 0.5s, ease-in-out);
+}
+
+// Slide In Animation
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slide-in-up {
+  @include animation(slideInUp, 0.5s, ease-out);
+}
+
+// Pulse Animation
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  @include animation(pulse, 1s, ease-in-out, 0s, infinite);
+}
+
+// Bounce Animation
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.bounce {
+  @include animation(bounce, 1s, ease-in-out, 0s, infinite);
+}
+
+// =============================================================================
+// RESPONSIVE DESIGN
+// =============================================================================
+
+// Breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Media Query Mixin
+@mixin media-breakpoint-up($name) {
+  $min: map-get($breakpoints, $name);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($name) {
+  $max: map-get($breakpoints, $name);
+  @if $max {
+    @media (max-width: $max - 0.02px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Responsive Utilities
+@include media-breakpoint-up(sm) {
+  .d-sm-none { display: none !important; }
+  .d-sm-inline { display: inline !important; }
+  .d-sm-inline-block { display: inline-block !important; }
+  .d-sm-block { display: block !important; }
+  .d-sm-table { display: table !important; }
+  .d-sm-table-row { display: table-row !important; }
+  .d-sm-table-cell { display: table-cell !important; }
+  .d-sm-flex { display: flex !important; }
+  .d-sm-inline-flex { display: inline-flex !important; }
+}
+
+@include media-breakpoint-up(md) {
+  .d-md-none { display: none !important; }
+  .d-md-inline { display: inline !important; }
+  .d-md-inline-block { display: inline-block !important; }
+  .d-md-block { display: block !important; }
+  .d-md-table { display: table !important; }
+  .d-md-table-row { display: table-row !important; }
+  .d-md-table-cell { display: table-cell !important; }
+  .d-md-flex { display: flex !important; }
+  .d-md-inline-flex { display: inline-flex !important; }
+}
+
+@include media-breakpoint-up(lg) {
+  .d-lg-none { display: none !important; }
+  .d-lg-inline { display: inline !important; }
+  .d-lg-inline-block { display: inline-block !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-table { display: table !important; }
+  .d-lg-table-row { display: table-row !important; }
+  .d-lg-table-cell { display: table-cell !important; }
+  .d-lg-flex { display: flex !important; }
+  .d-lg-inline-flex { display: inline-flex !important; }
+}
+
+// =============================================================================
+// DARK MODE
+// =============================================================================
+
+[data-theme="dark"] {
+  // Dark mode variables
+  $dark-bg: #1a1a1a;
+  $dark-text: #e5e5e5;
+  $dark-border: #333333;
+  
+  body {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+  
+  .card {
+    background-color: lighten($dark-bg, 5%);
+    border-color: $dark-border;
+  }
+  
+  .form-control {
+    background-color: lighten($dark-bg, 5%);
+    border-color: $dark-border;
+    color: $dark-text;
+    
+    &:focus {
+      background-color: lighten($dark-bg, 5%);
+      border-color: $primary-color;
+      color: $dark-text;
+    }
+  }
+  
+  .btn {
+    &.btn-light {
+      background-color: $dark-bg;
+      border-color: $dark-border;
+      color: $dark-text;
+      
+      &:hover {
+        background-color: lighten($dark-bg, 5%);
+        border-color: lighten($dark-border, 5%);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CUSTOM COMPONENTS
+// =============================================================================
+
+// Admin Panel Specific Styles
+.admin-panel {
+  .sidebar {
+    background-color: #1f2937;
+    color: #f9fafb;
+    
+    .nav-link {
+      color: #d1d5db;
+      
+      &:hover {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      &.active {
+        color: #fff;
+        background-color: $primary-color;
+      }
+    }
+  }
+  
+  .main-content {
+    background-color: #f8fafc;
+  }
+  
+  .header {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: $box-shadow-sm;
+  }
+}
+
+// Dashboard Cards
+.dashboard-card {
+  background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 10%) 100%);
+  color: white;
+  border: none;
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    opacity: 0.9;
+    margin-bottom: 0;
+  }
+}
+
+// Chart Container
+.chart-container {
+  position: relative;
+  height: 300px;
+  
+  canvas {
+    max-height: 100%;
+  }
+}
+
+// Table Enhancements
+.table-enhanced {
+  .table {
+    margin-bottom: 0;
+    
+    th {
+      border-top: none;
+      font-weight: 600;
+      color: $dark-color;
+      background-color: #f8fafc;
+    }
+    
+    td {
+      vertical-align: middle;
+    }
+  }
+}
+
+// Loading States
+.loading {
+  position: relative;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Notification Styles
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1050;
+  padding: 1rem 1.5rem;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-lg;
+  color: white;
+  font-weight: 500;
+  
+  &.notification-success {
+    background-color: $success-color;
+  }
+  
+  &.notification-error {
+    background-color: $danger-color;
+  }
+  
+  &.notification-warning {
+    background-color: $warning-color;
+  }
+  
+  &.notification-info {
+    background-color: $info-color;
+  }
+}
+
+// =============================================================================
+// PRINT STYLES
+// =============================================================================
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .card {
+    border: 1px solid #000 !important;
+    box-shadow: none !important;
+  }
+  
+  .btn {
+    border: 1px solid #000 !important;
+  }
+}
